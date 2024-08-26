@@ -1,18 +1,13 @@
 from fastapi.middleware.cors import CORSMiddleware
-from os.path import dirname, join, abspath
+from libs.sqlite_manager import Sqlite
 from fastapi import FastAPI, Query
-from fastapi.middleware.cors import CORSMiddleware
+from os.path import abspath
 from typing import List
 from sys import path
 
-current_script_path = abspath(__file__)
-project_root = dirname(dirname(current_script_path))
-affective_computing_path = join(project_root, 'AffectiveComputing')
-path.insert(0, affective_computing_path)
-from libs.pre_processing import PreProcessing
-from libs.sqlite_manager import Sqlite
+current_path = abspath(__file__)
 
-PATH_DATABASE = affective_computing_path+"/songs_database.db"
+PATH_DATABASE = current_path.replace("/app.py", "")+"/songs_database.db"
 
 # Configuração do FastAPI
 app = FastAPI(
