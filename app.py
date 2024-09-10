@@ -2,8 +2,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from libs.sqlite_manager import Sqlite
 from fastapi import FastAPI, Query
 from os.path import abspath
-from typing import List
-from sys import path
 
 current_path = abspath(__file__)
 
