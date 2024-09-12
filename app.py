@@ -1,11 +1,13 @@
 from fastapi.middleware.cors import CORSMiddleware
-from libs.sqlite_manager import Sqlite
 from fastapi import FastAPI, Query
 from os.path import abspath
-
+import sys
 current_path = abspath(__file__)
+path = current_path.replace("/app.py", "")
+sys.path.insert(1, path)
+from libs.sqlite_manager import Sqlite
 
-PATH_DATABASE = current_path.replace("/app.py", "")+"/songs_database.db"
+PATH_DATABASE = path+"/songs_database.db"
 
 # Configuração do FastAPI
 app = FastAPI(
