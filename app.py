@@ -98,7 +98,7 @@ async def get_sources():
 
 
 # Execução da aplicação
-if __name__ == "__main__":
-    pass
+#if __name__ == "__main__":
+ #   pass
     #import uvicorn
     #uvicorn.run(app, host="0.0.0.0", port=8000)
