@@ -5,7 +5,7 @@ import sys
 current_path = abspath(__file__)
 path = current_path.replace("/app.py", "")
 sys.path.insert(1, path)
-#from libs.sqlite_manager import Sqlite
+from libs.sqlite_manager import Sqlite
 
 PATH_DATABASE = path+"/songs_database.db"
 
@@ -98,7 +98,6 @@ async def get_sources():
 
 
 # Execução da aplicação
-#if __name__ == "__main__":
- #   pass
-    #import uvicorn
-    #uvicorn.run(app, host="0.0.0.0", port=8000)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="api.musicmoodai.com.br", port=8000)
