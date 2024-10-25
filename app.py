@@ -97,6 +97,15 @@ async def get_sources():
     return inputs
 
 
+@app.get("/get_explain_ai")
+async def get_sources():
+    sql3 = Sqlite(database=PATH_DATABASE)
+    query = f"""SELECT * FROM explain_ai;"""
+    inputs = sql3.get_by_select(query=query)
+    inputs = inputs.to_dict(orient='records')    
+    return inputs
+
+
 # Execução da aplicação
 if __name__ == "__main__":
     import uvicorn
